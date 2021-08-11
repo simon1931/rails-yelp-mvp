@@ -3,7 +3,7 @@ class Restaurant < ApplicationRecord
 
   AUTHORIZED_CATEGORY = %w[chinese italian japanese french belgian].freeze
   validates :name, presence: true
-  validates :adress, presence: true
+  validates :address, presence: true
   validates :category, presence: true
   validates :category, inclusion: { in: AUTHORIZED_CATEGORY }
 end
