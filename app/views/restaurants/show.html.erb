@@ -1,24 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item"><%= review.rating %>
+    <% end %>
+  </ul>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @restaurant.phone_number %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Faire un comm', new_restaurant_review_path(@restaurant) %>
+<br>
+<%= link_to "Retour au restaurants", restaurants_path %>
+</div>
